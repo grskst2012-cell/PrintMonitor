@@ -1,5 +1,4 @@
 # PrintMonitor
-# PrintMonitor
 
 A web-based monitoring dashboard for the **FlashForge Adventurer 4** 3D printer.
 
