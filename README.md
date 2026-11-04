@@ -14,6 +14,14 @@ PrintMonitor allows you to monitor your printer's status, temperatures, progress
 - **Local network access** — open the dashboard from a phone, tablet, or computer.
 - **Responsive web interface** — designed for convenient monitoring across devices.
 
+Android App
+
+PrintMonitor also includes an Android APK that provides a dedicated browser-based app experience for the monitoring dashboard.
+
+The APK is available in the repository's Releases section.
+
+The app acts as a lightweight browser wrapper for the web interface, allowing you to access PrintMonitor more conveniently from an Android device connected to the same local network.
+
 ## Tech Stack
 
 ### Backend
