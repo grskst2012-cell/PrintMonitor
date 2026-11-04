@@ -1,0 +1,213 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  color: #edf0f4;
+  background: #0b0e13;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% -20%, #19332c 0%, transparent 55%),
+    #0b0e13;
+}
+
+button { font: inherit; }
+
+.app {
+  width: min(100% - 36px, 960px);
+  margin: auto;
+  padding: 28px 0 35px;
+}
+
+.topbar, .brand, .connection, .section-heading,
+.print-top, .progress-info, .progress-bottom,
+.info-row, footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand { justify-content: flex-start; gap: 12px; }
+
+.brand-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  color: #6ee7b7;
+  background: #17342c;
+  border: 1px solid #285343;
+  border-radius: 14px;
+}
+
+h1 { font-size: 19px; margin: 0 0 4px; }
+.brand span, .eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #84918e;
+}
+
+.connection {
+  gap: 7px;
+  padding: 9px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.connected { color: #70dfad; background: #16352b; }
+.disconnected { color: #f08b8b; background: #3b2225; }
+
+.welcome {
+  margin-top: 32px;
+  padding: 30px;
+  min-height: 165px;
+  border-radius: 22px;
+  border: 1px solid #263b35;
+  background: linear-gradient(120deg, #172c26, #14201f 70%, #17252c);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcome h2 { font-size: clamp(25px, 5vw, 36px); margin: 10px 0; }
+.welcome p { color: #9daaa6; font-size: 13px; margin: 0; }
+
+.printer-icon {
+  color: #6ee7b7;
+  opacity: .8;
+  padding: 18px;
+  border: 1px solid #345448;
+  background: #1d3830;
+  border-radius: 20px;
+}
+
+.section { margin-top: 32px; }
+.section-heading { margin-bottom: 15px; }
+.section-heading h3 { font-size: 19px; margin: 6px 0 0; }
+.muted-icon { color: #81908a; }
+
+.card {
+  border: 1px solid #252d35;
+  border-radius: 17px;
+  background: #141920;
+}
+
+.print-card { padding: 23px; }
+
+.print-top { align-items: flex-start; gap: 12px; }
+.muted { color: #89949f; font-size: 12px; }
+.filename {
+  font-size: 17px;
+  margin: 9px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.status-pill {
+  padding: 7px 11px;
+  background: #30343a;
+  color: #bac1c8;
+  border-radius: 30px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.status-pill.active { background: #183a2e; color: #72dfad; }
+
+.progress-info { margin-top: 29px; font-size: 13px; color: #b7c0c8; }
+.progress-info strong { color: #6ee7b7; font-size: 20px; }
+
+.progress-track {
+  margin-top: 12px;
+  height: 9px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #2b333b;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #62d5a1;
+  border-radius: 20px;
+  transition: width .4s;
+}
+
+.progress-bottom { margin-top: 10px; color: #87939e; font-size: 11px; }
+
+.temperature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.temperature-card { padding: 20px; }
+.temperature-icon { color: #6ee7b7; margin-bottom: 18px; }
+.temperature-value { font-size: clamp(27px, 5vw, 36px); font-weight: 700; margin: 10px 0; }
+.temperature-value small { font-size: 15px; color: #9aa5af; margin-left: 3px; }
+.target { color: #89949f; font-size: 11px; }
+
+.info-card { padding: 4px 19px; }
+.info-row { min-height: 49px; gap: 12px; border-bottom: 1px solid #293039; font-size: 12px; }
+.info-row:last-child { border: 0; }
+.info-row span { color: #89949f; }
+.info-row strong { text-align: right; overflow-wrap: anywhere; font-weight: 500; }
+
+.camera-card {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: #6ee7b7;
+  text-align: center;
+  padding: 20px;
+}
+.camera-card strong { color: #e7ebef; font-size: 14px; }
+.camera-card span { color: #89949f; font-size: 12px; }
+
+.refresh {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border: 1px solid #303942;
+  background: #171e25;
+  color: #b8c6c0;
+  border-radius: 11px;
+  cursor: pointer;
+}
+.refresh:hover { color: #6ee7b7; border-color: #6ee7b7; }
+
+footer {
+  margin-top: 35px;
+  padding-top: 18px;
+  border-top: 1px solid #252d35;
+  color: #84918e;
+  font-size: 10px;
+}
+footer div { display: flex; gap: 7px; align-items: center; }
+
+@media (max-width: 550px) {
+  .app { width: calc(100% - 24px); padding-top: 18px; }
+  .welcome { padding: 21px; min-height: 140px; margin-top: 23px; }
+  .printer-icon { padding: 12px; }
+  .section { margin-top: 25px; }
+  .print-card { padding: 17px; }
+  .temperature-card { padding: 15px; }
+  .info-card { padding: 3px 13px; }
+  .filename { font-size: 14px; }
+  .info-row { font-size: 11px; }
+}
+

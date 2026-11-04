@@ -1,129 +1,32 @@
-# PrintMonitor
+# React + TypeScript + Vite
 
-A web-based monitoring dashboard for the **FlashForge Adventurer 4** 3D printer.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-PrintMonitor allows you to monitor your printer's status, temperatures, progress, and live camera feed from a computer or smartphone connected to the same local network.
+Currently, two official plugins are available:
 
-## Features
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-- **Automatic printer discovery** — finds the printer on the local network without requiring a manually configured IP address.
-- **Live camera stream** — displays the printer's camera feed directly in the dashboard.
-- **Multi-device camera streaming** — shares a single connection to the printer's camera between multiple clients.
-- **Printer telemetry** — retrieves temperature, machine status, and printing information.
-- **Automatic reconnection** — attempts to reconnect when the printer becomes unavailable.
-- **Local network access** — open the dashboard from a phone, tablet, or computer.
-- **Responsive web interface** — designed for convenient monitoring across devices.
+## React Compiler
 
-## Android App
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-PrintMonitor also includes an Android APK that provides a dedicated browser-based app experience for the monitoring dashboard.
+## Expanding the Oxlint configuration
 
-The APK is available in the repository's **[Releases](../../releases)** section.
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-The app acts as a lightweight browser wrapper for the web interface, allowing you to access PrintMonitor more conveniently from an Android device connected to the same local network.
-
-## Tech Stack
-
-### Backend
-- Python
-- FastAPI
-- Uvicorn
-- Socket communication
-- MJPEG streaming
-
-### Frontend
-- React
-- TypeScript
-- Vite
-- CSS
-
-## Architecture
-
-```text
-                 FlashForge Adventurer 4
-                    /             \
-          Control interface     Camera
-             Port 8899         Port 8080
-                  \               /
-                   \             /
-                    Python Backend
-                       FastAPI
-                         |
-                  Local Network API
-                         |
-                  React Frontend
-                    /         \
-               Computer     Smartphone
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
 
-The backend communicates with the printer, retrieves telemetry, and maintains a shared camera connection. Multiple frontend clients can receive the same video stream without opening separate connections to the printer.
-
-## Requirements
-
-- Windows 10/11
-- Python 3
-- Node.js and npm
-- FlashForge Adventurer 4
-- Computer and printer connected to the same local network
-
-## Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/PrintMonitor.git
-cd PrintMonitor
-```
-
-### 2. Install backend dependencies
-
-```bash
-cd backend
-py -m pip install fastapi uvicorn
-```
-
-### 3. Install frontend dependencies
-
-Open another terminal:
-
-```bash
-cd frontend
-npm install
-```
-
-## Running
-
-Start the backend:
-
-```bash
-cd backend
-py -m uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-Start the frontend in another terminal:
-
-```bash
-cd frontend
-npm run dev -- --host 0.0.0.0
-```
-
-Open the dashboard:
-
-```text
-http://localhost:5173
-```
-
-To access it from another device on the same network, use your computer's local IP address:
-
-```text
-http://YOUR_COMPUTER_IP:5173
-```
-
-Make sure Windows Firewall allows connections to ports `5173` and `8000`.
-
-## API Endpoints
-
-| Endpoint | Description |
-|---|---|
-| `/api/health` | Backend health check |
-| `/api/status` | Printer
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

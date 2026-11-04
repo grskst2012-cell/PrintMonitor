@@ -1,0 +1,1 @@
+# Printer address is discovered automatically on the local network.\nPRINTER_PORT = 8899\nCAMERA_PORT = 8080\n\nPOLL_INTERVAL = 3\n
